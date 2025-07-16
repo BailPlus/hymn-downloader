@@ -12,6 +12,7 @@ def get_mp3_url(dom: BeautifulSoup) -> str:
     try:
         return dom.find('ul', class_="sm2-playlist-bd").find('a').get('href')
     except AttributeError as e:
+        breakpoint()
         raise ParseFailed
 
 async def get_music(url: str) -> str:
